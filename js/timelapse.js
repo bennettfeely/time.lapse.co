@@ -46,6 +46,7 @@ $hours = $("#hours");
 $minutes = $("#minutes");
 $seconds = $("#seconds");
 $fps = $("#fps");
+    fps = 24;
 $setfps = $(".set-fps");
 
 
@@ -292,7 +293,7 @@ function setLocalStorage() {
     var hours = $hours.val();
     var minutes = $minutes.val();
     var seconds = Math.round($seconds.val());
-    var fps = Math.round($fps.val());
+        fps = Math.round($fps.val());
 
     var timecheck = (hours * 36e5) + (minutes * 6e4) + (seconds * 1000);
 
@@ -542,25 +543,14 @@ var shootFrame = function() {
 
 
 
-    var timeest = (shotcount / fps) * 1000;
-    console.log("(" + shotcount + "/" + fps + ") * 1000");
-    console.log("timeest: " + timeest);
-
-
     // Put the first frame taken first,
     // All others in reverse chronological order after the first frame
     // i.e. 1, 6, 5, 4, 3, 2, 1...
     if (shotcount == 1) {
         $shotcontainer.append(frame);
-
-        var timeestimate = '<span class="static">1</span> frame captured. ';
     } else {
         $(".shot:first", $shotcontainer).after(frame);
-
-        var timeestimate = '<span class="static">' + shotcount + '</span> frames captured. ';
     }
-       $setfps.html('Next frame in <span class="static">' + realTime(shotclock) + '</span>' + timeestimate);
-
 
 
     // Preview shot on hover,
@@ -578,17 +568,26 @@ var shootFrame = function() {
 
 
     // Write how many frames were captured
-    var fps = Math.round($fps.val());
+    // var fps = Math.round($fps.val());
+    console.log("FPS from sh:: " + fps);
     var millifps = 1000 / fps;
-    var time = shotcount * millifps;
+    var milliduration = shotcount * millifps;
+    var timeestimate = '<span class="static">' + realTime(milliduration) + '</span>';
+
+    if(milliduration < 1000){
+        var timeestimate = 'less than <span class="static">0:01</span>';
+    }
+
+    console.log(milliduration);
 
 
 
     // Countdown until next shot and tell people how many shots they took
+    $setfps.html('Next frame in <span class="static">' + realTime(shotclock) + '</span> Timelapse currently ' + timeestimate);
     var ticker = setInterval(function() {
         var milli = shotclock -= 1000;
 
-        $setfps.html('Next frame in <span class="static">' + realTime(shotclock) + '</span>' + timeestimate);
+        $setfps.html('Next frame in <span class="static">' + realTime(shotclock) + '</span> Timelapse currently ' + timeestimate);
 
 
         if (milli == 0) { clearInterval(ticker); }
@@ -828,10 +827,12 @@ $(function() {
             });
 
 
+        /*
             // Pretty share buttons with Sharrre plugin
             $(".twitter").sharrre({share:{twitter:true},className:"share",template:'<span class="share-button twitter-button"><i>t</i>Tweet</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("twitter")}});
             $(".facebook").sharrre({share:{facebook:true},className:"share",template:'<span class="share-button facebook-button"><i>v</i>Share</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("facebook")}});
             $(".gplus").sharrre({share:{googlePlus:true},className:"share",template:'<span class="share-button googleplus-button"><i>Ć</i>+1</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("googlePlus")}})
+        */
 
 
         } else {
