@@ -891,6 +891,12 @@ $(function() {
     });
 
 
+    // Play camera audio sound effect on frame capture toggle
+    $(".options-toggle").click(function() {
+        $html.toggleClass("show-options");
+    });
+
+
     // Show camera flash effect toggle
     $(".flash-toggle").click(function() {
 
@@ -905,7 +911,6 @@ $(function() {
 
     // Play camera audio sound effect on frame capture toggle
     $(".audio-toggle").click(function() {
-
         $html.toggleClass("audio");
         if($html.hasClass("audio")){
             localStorage.setItem('timelapse_audio', true);

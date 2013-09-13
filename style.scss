@@ -549,15 +549,28 @@
         &:first-of-type { margin-left: 0; }
     }
 
+    .options-toggle {
+        font: 1.25rem/2rem "icon";
+        padding: 0 .5rem;
+        float: right;
+        margin: 0;
+        padding: 0;
+        width: 2rem;
+
+        &:after { content: "V"; }
+    }
+        .show-options .options-toggle:after { content: "î"; }
+
     .options {
+        display: none;
+
         .mini-toggle {
             flex: 1 0 auto; align-content: center;
 
             &:last-child { margin-right: 0; }
         }
-
-        display: flex;
     }
+    .show-options .options { display: flex; }
 
 
     textarea,
