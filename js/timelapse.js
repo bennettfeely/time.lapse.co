@@ -49,6 +49,8 @@ $fps = $("#fps");
     fps = 24;
 $setfps = $(".set-fps");
 
+$audio = $("audio")[0];
+
 
 // I should really fix this disgusting code....
 function startAttemptAuth() {
@@ -269,6 +271,7 @@ function loadLocalStorage() {
     var storedseconds = Math.abs(localStorage.getItem("timelapse_seconds"));
     var storedfps = Math.abs(localStorage.getItem("timelapse_fps"));
     var storednoflash = localStorage.getItem("timelapse_noflash");
+    var storedaudio = localStorage.getItem("timelapse_audio");
     // var storedhd = localStorage.getItem("timelapse_hd");
 
     // And if we have those things locally stored... set it up
@@ -277,6 +280,7 @@ function loadLocalStorage() {
     if (storedseconds) { $seconds.val(storedseconds); }
     if (storedfps) { $fps.val(storedfps); }
     if (storednoflash) { $html.addClass("noflash"); }
+    if (storedaudio) { $html.addClass("audio"); }
     // if (storedhd) { $html.addClass("HD"); }
 
 
@@ -499,6 +503,14 @@ var shootFrame = function() {
     // Users can modify the time interval between shots
     // While the timelapse is running
     var shotclock = getShotclock();
+
+
+    // Play a camera sound effect
+    if($html.hasClass("audio")){
+        console.log("pchingggggg!!!!!");
+        $audio.play();
+    }
+
 
     // Capture the frame
     var video = document.getElementById('video');
@@ -880,7 +892,8 @@ $(function() {
 
 
     // Show camera flash effect toggle
-    $("#flash_toggle").click(function() {
+    $(".flash-toggle").click(function() {
+
         $html.toggleClass("noflash");
         if($html.hasClass("noflash")){
             localStorage.setItem('timelapse_noflash', true);
@@ -890,8 +903,20 @@ $(function() {
         }
     });
 
+    // Play camera audio sound effect on frame capture toggle
+    $(".audio-toggle").click(function() {
+
+        $html.toggleClass("audio");
+        if($html.hasClass("audio")){
+            localStorage.setItem('timelapse_audio', true);
+        }
+        else {
+            localStorage.removeItem('timelapse_audio');
+        }
+    });
+
     /*
-    $("#hd_toggle").click(function() {
+    $(".hd-toggle").click(function() {
 
         $html.toggleClass("HD");
 
@@ -904,3 +929,5 @@ $(function() {
     });
     */
 });
+
+

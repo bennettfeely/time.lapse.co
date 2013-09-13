@@ -62,7 +62,7 @@
                         </p>
 
                     <h2>Can I turn the flash <span class="flash-toggle"></span>?</h2>
-                        <p><span id="flash_toggle" class="mini-toggle flash-toggle button">Turn flash </span></p>
+                        <p><span class="mini-toggle flash-toggle button">Turn flash </span></p>
 
                     <h2>How can I put my awesome timelapse in the time.lapse.co theater?</h2>
                         <p>Timelapses made on time.lapse.co appear in the theater after YouTube indexes you video, usually within a few hours.</p>
@@ -73,7 +73,7 @@
                     <h2>What resolution does time.lapse.co record in?</h2>
                         <p>Timelapses are recorded at 640 &times; 480 by default, regardless of your webcam's resolution. I plan on adding a high resolution recording mode soon.
                         <!-- High definition mode records at 1280 &times; 960.</p>
-                            <p class="hd-msg"><span id="hd_toggle" class="mini-toggle hd-toggle button"></span> Recording resolution will change when recording a new timelapse.</p>
+                            <p class="hd-msg"><span class="mini-toggle hd-toggle button"></span> Recording resolution will change when recording a new timelapse.</p>
                         -->
 
                     <h2>How long can I record a timelapse for?</h2>
@@ -112,12 +112,17 @@
                                 <input class="mini" id="minutes" value="0" autocomplete="off" />minutes &nbsp;
                                 <input class="mini" id="seconds" value="5" autocomplete="off" /> seconds
                             </section>
-                            <section class="set-fps">
+                            <section>
                                 <span class="set-fps">
                                     Make the final timelapse
                                     <input class="mini" id="fps" value="24" autocomplete="off" />
                                     frames per second
                                 </span>
+                            </section>
+                            <section class="options">
+                                <span class="mini-toggle flash-toggle button">Turn flash </span>
+                                <span class="mini-toggle audio-toggle button">Turn audio </span>
+                                <span class="mini-toggle hd-toggle button"></span>
                             </section>
                             <a id="start" class="start button">Allow access to a webcam to start<span class="confused none">. <span class="problems">Having trouble?</span></span></a>
                             <div class="helper"></div>
@@ -170,6 +175,10 @@
 
     </div>
 </div>
+
+<audio>
+    <source src="sound/camera-shutter-click-01.mp3"></source>
+</audio>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script async src="js/timelapse.js"></script>

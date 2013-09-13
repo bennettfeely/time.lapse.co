@@ -165,11 +165,18 @@
     .flash-toggle:after { content:"off"; }
     .noflash .flash-toggle:after { content:"on"; }
 
+    .audio-toggle:after { content:"on"; }
+    .audio .audio-toggle:after { content:"off"; }
+
     header .mini-toggle { line-height: ($header/2); margin: 0 0 0 .5rem; }
 
-    .hd-toggle:after { content: "Switch to HD mode (1280 × 960)"; }
-    .hd .hd-toggle:after { content: "Switch to default mode (640 × 480)"; }
+    /* Main page hd toggle button */
+    .hd-toggle:after { content: "Switch to HD mode"; }
+    .hd .hd-toggle:after { content: "Switch to default recording"; }
 
+    /* About page hd toggle button */
+    .about .hd-toggle:after { content: "Switch to HD mode (1280 × 960)"; }
+    .hd .about .hd-toggle:after { content: "Switch to default mode (640 × 480)"; }
 
 
 /* Header ================================================================== */
@@ -541,6 +548,17 @@
 
         &:first-of-type { margin-left: 0; }
     }
+
+    .options {
+        .mini-toggle {
+            flex: 1 0 auto; align-content: center;
+
+            &:last-child { margin-right: 0; }
+        }
+
+        display: flex;
+    }
+
 
     textarea,
     input {
