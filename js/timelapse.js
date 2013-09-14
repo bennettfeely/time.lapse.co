@@ -920,7 +920,6 @@ $(function() {
         }
     });
 
-    /*
     $(".hd-toggle").click(function() {
 
         $html.toggleClass("HD");
@@ -932,7 +931,4 @@ $(function() {
             localStorage.removeItem('timelapse_hd');
         }
     });
-    */
 });
-
-
