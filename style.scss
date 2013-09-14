@@ -313,19 +313,26 @@
     }
 
     .toggle-theater,
+    .toggle-home,
     .toggle-about {
         float: right;
+        flex: none;
         margin-left: .5rem;
-        width: 9rem;
+        width: 6.5rem;
 
         @media (max-width: $small){
             width: 5.25rem;
             line-height: ($header/1.5);
         }
 
-
         &:active { transform: none; }
     }
+    .toggle-home {
+        font: 1.25rem "icon";
+        line-height: $header;
+        width: $header;
+    }
+
     .showing-theater .toggle-theater,
     .showing-about .toggle-about {
         background: $hoverblue;
@@ -334,14 +341,6 @@
         &:active {
             background: $activeblue;
             transform: none;
-        }
-
-        &:after {
-            display: inline-block;
-            font-weight: 300;
-            font-size: 1.5rem;
-            padding-left: .5rem;
-            content: "\00D7";
         }
     }
 

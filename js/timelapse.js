@@ -30,6 +30,7 @@ $preview_shot_container = $("#preview_shot_container");
 
 $toggle_theater = $("#toggle_theater");
     $theater = $("#theater");
+$toggle_home = $("#toggle_home");
 $toggle_about = $("#toggle_about");
 
 $start = $("#start");
@@ -854,6 +855,12 @@ $(function() {
 
         // Prevent flash of main page for people who can't make timelapses
         $html.addClass("go");
+    });
+
+
+    $toggle_home.click(function(){
+        $(".timelapse").children().remove("object").removeClass("playing");
+        $body.removeClass("showing-about showing-theater");
     });
 
 
