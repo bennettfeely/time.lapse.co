@@ -562,8 +562,16 @@
     .show-options .options { display: flex; }
 
     /* Options toggle buttons */
+
+    .recording .hd-toggle {
+        background: transparent;
+        color: gray;
+        pointer-events: none;
+    }
     .hd-toggle:after { content: "Switch to HD mode"; }
+        .recording .hd-toggle:after { content: "Standard recording"; }
     .hd .hd-toggle:after { content: "Switch to default recording"; }
+        .recording.hd .hd-toggle:after { content: "Recording in HD"; }
 
     .flash-toggle:after { content:"off"; }
     .noflash .flash-toggle:after { content:"on"; }
