@@ -162,21 +162,10 @@
         margin-right: 1rem;
         vertical-align: middle;
     }
-    .flash-toggle:after { content:"off"; }
-    .noflash .flash-toggle:after { content:"on"; }
 
-    .audio-toggle:after { content:"on"; }
-    .audio .audio-toggle:after { content:"off"; }
 
     header .mini-toggle { line-height: ($header/2); margin: 0 0 0 .5rem; }
 
-    /* Main page hd toggle button */
-    .hd-toggle:after { content: "Switch to HD mode"; }
-    .hd .hd-toggle:after { content: "Switch to default recording"; }
-
-    /* About page hd toggle button */
-    .about .hd-toggle:after { content: "Switch to HD mode (1280 × 960)"; }
-    .hd .about .hd-toggle:after { content: "Switch to default mode (640 × 480)"; }
 
 
 /* Header ================================================================== */
@@ -572,6 +561,17 @@
     }
     .show-options .options { display: flex; }
 
+    /* Options toggle buttons */
+    .hd-toggle:after { content: "Switch to HD mode"; }
+    .hd .hd-toggle:after { content: "Switch to default recording"; }
+
+    .flash-toggle:after { content:"off"; }
+    .noflash .flash-toggle:after { content:"on"; }
+
+    .audio-toggle:after { content:"on"; }
+    .audio .audio-toggle:after { content:"off"; }
+
+
 
     textarea,
     input {
@@ -617,7 +617,6 @@
     .youtube {
         flex: 1;
         padding: ($padding) 0;
-        margin-bottom: .5rem;
     }
     .youtube:after {
         font-family: "icon";
@@ -629,7 +628,6 @@
         line-height: 1rem;
         padding: ($padding*3) 0 ($padding*2);
         flex-direction: column;
-        margin-bottom: .5rem;
     }
 
     .download,
@@ -654,6 +652,8 @@
         }
         .uploading .goback:after { content: ""; }
         .uploading .upload-button { flex: 2.75; }
+
+        .download { margin-top: .5rem; }
 
 
 
