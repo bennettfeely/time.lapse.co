@@ -875,7 +875,7 @@ $(function() {
         }
 
         $(".timelapse").children().remove("object").removeClass("playing");
-        $body.removeClass("showing-about").toggleClass("showing-theater");
+        $body.removeClass("showing-about").addClass("showing-theater");
     });
 
     // About page toggle
@@ -894,7 +894,7 @@ $(function() {
         }
 
         $(".timelapse").children().remove("object").removeClass("playing");
-        $body.removeClass("showing-theater").toggleClass("showing-about");
+        $body.removeClass("showing-theater").addClass("showing-about");
     });
 
 
