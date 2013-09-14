@@ -402,28 +402,6 @@
         opacity: 1;
     }
 
-    .hd.webcam .video-container:after {
-        display: inline-block;
-        position: absolute;
-        top: .5rem;
-        left: .5rem;
-        padding: 0.5rem;
-        background: rgba(22,22,29,.9);
-        color: #dcdcdc;
-        border-radius: $radius;
-        font-size:1.5rem;
-        font-weight: bold;
-        transition: $transitionlong;
-        opacity:.5;
-        transform-origin: -.5rem -.5rem;
-        content: "HD";
-    }
-
-    .hd.webcam .video-container:hover:after {
-        background: rgba(22,22,29, 0);
-        transform: scale(.5);
-    }
-
     .progress-indicator {
         position:absolute;
         background: $hoverblue;
