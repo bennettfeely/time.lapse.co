@@ -20,9 +20,6 @@ $header = $("header");
 $slider = $(".slider");
 $main_page = $("#main_page");
 
-// HD is a multiplier,
-// HD = 2 would mean the video width/height would be doubled fyi
-HD = 1;
 
 $title = $("#title");
 $video = $("#video");
@@ -273,7 +270,7 @@ function loadLocalStorage() {
     var storedfps = Math.abs(localStorage.getItem("timelapse_fps"));
     var storednoflash = localStorage.getItem("timelapse_noflash");
     var storedaudio = localStorage.getItem("timelapse_audio");
-    // var storedhd = localStorage.getItem("timelapse_hd");
+    var storedhd = localStorage.getItem("timelapse_hd");
 
     // And if we have those things locally stored... set it up
     if (storedhours) { $hours.val(storedhours); }
@@ -282,7 +279,7 @@ function loadLocalStorage() {
     if (storedfps) { $fps.val(storedfps); }
     if (storednoflash) { $html.addClass("noflash"); }
     if (storedaudio) { $html.addClass("audio"); }
-    // if (storedhd) { $html.addClass("HD"); }
+    if (storedhd) { $html.addClass("HD"); }
 
 
     shotclock = getShotclock();
@@ -360,22 +357,20 @@ function getShotclock() {
 
 function startTimelapse() {
 
-    console.log("startTimelapse();");
-
     $start.text('Starting in 0:05');
 
-    /*
-        if($html.hasClass("HD")){
-            HD = 2;
 
-            $("#video, #canvas").attr({
-                width : (HD * 640),
-                height : (HD * 480)
-            });
+    if($html.hasClass("HD")){
 
-            console.log("We're live in HD!!!");
-        }
-    */
+        console.log("We have hd at startTimelapse();");
+
+        $("#video, #canvas").attr({
+            width : 1280,
+            height : 960
+        });
+
+        console.log("We're live in HD!!!");
+    }
 
 
     // Start a 5 sec countdown timer
@@ -508,22 +503,24 @@ var shootFrame = function() {
 
     // Play a camera sound effect
     if($html.hasClass("audio")){
-        console.log("pchingggggg!!!!!");
         $audio.play();
     }
-
 
     // Capture the frame
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
+
+    if($html.hasClass("HD")){
+        ctx.drawImage(video, 0, 0, 1280, 960);
+    } else {
+        ctx.drawImage(video, 0, 0, 640, 480);
+    }
 
     // Add the frame to Whammy
     encoder.add(canvas);
 
     // Put the frame in the film roll
-    // Fix this to make frames 320x240 for smaller screens and run faster
     var src = canvas.toDataURL("image/webp");
 
     // Write a time the shots were taken
@@ -549,7 +546,7 @@ var shootFrame = function() {
 
     // Make the frame
     var frame = '<div class="shot">' +
-                    '<img src="' + src + '" width="' + (640 * HD) + '" height="' + (480 * HD) + '" />' +
+                    '<img src="' + src + '" width="1280" height="960" />' +
                     '<time>' + shottime + '</time>' +
                 '</div>';
 

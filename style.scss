@@ -334,12 +334,12 @@
         font: 1.25rem "icon";
         line-height: $header;
         width: $header;
+        box-shadow: inset 0 .25rem $hoverblue;
 
         &:hover {
             background: $blacklight;
-            box-shadow: inset 0 .5rem $hoverblue;
         }
-        &:active { box-shadow: inset 0 .5rem $activeblue; background: $activeblue; }
+        &:active { box-shadow: inset 0 .25rem $activeblue; background: $activeblue; }
 
         .showing-about &,
         .showing-theater & {
@@ -606,6 +606,8 @@
             &:hover { background: $hoverblue; }
             &:active { background: $activeblue; color: $textcolor; }
         }
+
+        &:focus { outline: 0; }
     }
 
     :not(.not-allowed).helper {
