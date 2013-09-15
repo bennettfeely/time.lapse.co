@@ -6,7 +6,7 @@ Create an awesome timelapse video with your webcam.
 How it works
 ------------
 
-time.lapse.co does it's work completely in your browser using all sorts of new HTML5 features.
+time.lapse.co does it's work completely in your browser using the awesome  [Whammy.js](https://github.com/antimatter15/whammy) encoder by [Antimatter15](https://github.com/antimatter15).
 
 Browser Support
 ---------------
