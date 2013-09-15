@@ -401,18 +401,6 @@
             width:100%;
             height: auto;
         }
-
-        .preview {
-            position: absolute;
-            top: 0;
-            z-index: 1000;
-            border: thick solid red;
-            opacity: 0;
-            pointer-events: none;
-            transition: $transitionlong;
-
-            .previewing & { opacity: 1; }
-        }
     }
         .timelapse-previewing .feed { display: none; }
         .bigscreen .video-container {
@@ -450,7 +438,7 @@
         transition: $transition;
         background-size:cover;
 
-        .previewing & { transform: perspective(1000); }
+        .shot-previewing & { transform: perspective(1000); }
     }
 
     .menu-container {
