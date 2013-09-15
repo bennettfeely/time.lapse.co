@@ -323,7 +323,7 @@
         width: 6.5rem;
 
         @media (max-width: $small){
-            width: 5.25rem;
+            width: 4.25rem;
             line-height: ($header/1.5);
         }
 
@@ -352,6 +352,11 @@
             }
 
             &:active { background: $activeblue; }
+        }
+
+        @media (max-width: $small){
+            width: ($header/1.5);
+            line-height: ($header/1.5);
         }
     }
 
@@ -861,7 +866,7 @@
     .nosupport {
         padding: 1.5rem 0;
 
-        @media (max-width: $tablet){ padding: $padding; }
+        @media (max-width: $tablet){ padding: 1.5rem; }
 
 
         h1 { font-size: 2.5rem; font-weight: 300; }
@@ -903,8 +908,32 @@
     }
     .unsupported:hover { color:gray; cursor:default; }
 
+
+    .emergency-mobile {
+        position: absolute;
+        top: $header;
+        bottom: 0;
+        left: 0; right: 0;
+        background: $black;
+        z-index: 3000;
+        display: none;
+        padding: 1rem 0;
+        transition: opacity $transition;
+
+        .showing-theater &, .showing-about & {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 300; }
+    }
+
     @media (max-width: $tablet){
+        .emergency-mobile { display: block; }
         .devices-msg:after { content:" and mobile devices"; }
+    }
+    @media (max-width: $small){
+        .emergency-mobile { padding: 1rem; }
     }
 
 
