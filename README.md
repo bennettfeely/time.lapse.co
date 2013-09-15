@@ -3,6 +3,8 @@
 
 Create an awesome timelapse video with your webcam.
 
+![A majestic sunset that was never captured on time.lapse.co](http://time.lapse.co/img/screenshot.png "time.lapse.co")
+
 How it works
 ------------
 
