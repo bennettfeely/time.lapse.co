@@ -840,12 +840,10 @@ $(function() {
             });
 
 
-        /*
             // Pretty share buttons with Sharrre plugin
             $(".twitter").sharrre({share:{twitter:true},className:"share",template:'<span class="share-button twitter-button"><i>t</i>Tweet</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("twitter")}});
             $(".facebook").sharrre({share:{facebook:true},className:"share",template:'<span class="share-button facebook-button"><i>v</i>Share</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("facebook")}});
             $(".gplus").sharrre({share:{googlePlus:true},className:"share",template:'<span class="share-button googleplus-button"><i>Ć</i>+1</span><span class="count">{total}</span>',enableHover:false,enableTracking:true,shorterTotal:false,click:function(e,t){e.simulateClick();e.openPopup("googlePlus")}})
-        */
 
 
         } else {
