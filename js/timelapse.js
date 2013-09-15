@@ -487,7 +487,7 @@ function realDate(time) {
     diff < 60 && "seconds ago" || diff < 120 && "one minute ago" || diff < 3600 && Math.floor(diff / 60) + " minutes ago" || diff < 7200 && "1 hour" || diff < 86400 && Math.floor(diff / 3600) + " hours ago") || day_diff == 1 && "yesterday" || day_diff < 7 && day_diff + " days ago" || day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
 }
 
-
+HD = 1;
 var shotcount = 0;
 var shootFrame = function() {
 
@@ -506,16 +506,16 @@ var shootFrame = function() {
         $audio.play();
     }
 
+    // Set things up for HD capturing
+    if($html.hasClass("HD")){ HD = 2; }
+
     // Capture the frame
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
-    if($html.hasClass("HD")){
-        ctx.drawImage(video, 0, 0, 1280, 960);
-    } else {
-        ctx.drawImage(video, 0, 0, 640, 480);
-    }
+    ctx.drawImage(video, 0, 0, (640 * HD), (480 * HD));
+
 
     // Add the frame to Whammy
     encoder.add(canvas);
@@ -546,7 +546,7 @@ var shootFrame = function() {
 
     // Make the frame
     var frame = '<div class="shot">' +
-                    '<img src="' + src + '" width="1280" height="960" />' +
+                    '<img src="' + src + '" width="' + (640 * HD) + '" height="' + (480 * HD) + '" />' +
                     '<time>' + shottime + '</time>' +
                 '</div>';
 
@@ -624,6 +624,9 @@ var shootFrame = function() {
 }
 
 /*
+
+Preview timelapse as it is being made --
+
 function preview(){
 
     output = encoder.compile();
