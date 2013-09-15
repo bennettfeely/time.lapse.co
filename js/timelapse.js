@@ -407,7 +407,7 @@ function startTimelapse() {
             shootFrame();
 
             // Confirmation message when clicking on the header title link while recording
-            $("#title, #no").click(function(){
+            $("#title, #no").mousedown(function(){
                 $("#title, #confirmation").toggleClass("none");
             });
 

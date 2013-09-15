@@ -100,14 +100,14 @@
                         <menu id="start_menu">
                             <section class="capture-every">
                                 Capture every
-                                <input class="mini" id="hours" value="0" autocomplete="off" />hours &nbsp;
-                                <input class="mini" id="minutes" value="0" autocomplete="off" />minutes &nbsp;
-                                <input class="mini" id="seconds" value="5" autocomplete="off" /> seconds
+                                <input tabindex="1" class="mini" id="hours" value="0" autocomplete="off" />hours &nbsp;
+                                <input tabindex="2" class="mini" id="minutes" value="0" autocomplete="off" />minutes &nbsp;
+                                <input tabindex="3" class="mini" id="seconds" value="5" autocomplete="off" /> seconds
                             </section>
                             <section>
                                 <span class="set-fps">
                                     Make the final timelapse
-                                    <input class="mini" id="fps" value="24" autocomplete="off" />
+                                    <input tabindex="4" class="mini" id="fps" value="24" autocomplete="off" />
                                     frames per second
                                 </span>
 
@@ -118,7 +118,7 @@
                                 <span class="mini-toggle audio-toggle button">Turn audio </span>
                                 <span class="mini-toggle hd-toggle button"></span>
                             </section>
-                            <a id="start" class="start button">Allow access to a webcam to start<span class="confused none">. <span class="problems">Having trouble?</span></span></a>
+                            <a tabindex="5" id="start" class="start button">Allow access to a webcam to start<span class="confused none">. <span class="problems">Having trouble?</span></span></a>
                             <div class="helper"></div>
                             <a id="compile" class="compile button">Finish Recording</a>
                         </menu>
