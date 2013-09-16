@@ -30,7 +30,7 @@
     $container : 60rem;
 
     $tablet : ($container - 2rem);
-    $small : ($container/1.5);
+    $small : 600px;
 
 
     $video-width : 40rem; /* 640px */
@@ -933,7 +933,10 @@
         .devices-msg:after { content:" and mobile devices"; }
     }
     @media (max-width: $small){
-        .emergency-mobile { padding: 1rem; }
+        .emergency-mobile {
+            top: ($header/1.5);
+            padding: 1rem;
+        }
     }
 
 
