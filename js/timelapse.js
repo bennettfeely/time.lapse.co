@@ -705,11 +705,16 @@ function theaterSearch() {
         $theater.empty();
 
         $.each(data.feed.entry, function(i, item) {
+
             var api_id = item.id.$t;
             api_id.match(/\/(\w+?)$/);
 
-            var id = RegExp.$1;
+
+            var id = api_id.substr(api_id.length - 11);
             var title = item.title.$t;
+
+            console.log("id: " + id);
+
             var image = '<img width="480" height="360" src="http://img.youtube.com/vi/' + id + '/hqdefault.jpg">';
             var author = item.author[0].name.$t;
             var description = item.media$group.media$description.$t;
@@ -726,6 +731,8 @@ function theaterSearch() {
                 + '</div>'
                 + '<figcaption>' + '<a href="http://www.youtube.com/watch?&v=' + id + '">' + title + ' by ' + author + '</a>'
                 + description + '</ficaption>' + '</figure>'
+
+            console.log(id);
 
 
             $(video_item).appendTo($theater);
