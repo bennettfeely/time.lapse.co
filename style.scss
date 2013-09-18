@@ -545,7 +545,8 @@
         display: none;
 
         .mini-toggle {
-            flex: 1 0 auto; align-content: center;
+            flex: 1 0 auto;
+            align-content: center;
 
             &:last-child { margin-right: 0; }
         }
@@ -559,16 +560,21 @@
         color: gray;
         pointer-events: none;
     }
-    .hd-toggle:after { content: "Switch to HD mode"; }
-        .recording .hd-toggle:after { content: "Standard recording"; }
-    .hd .hd-toggle:after { content: "Switch to default recording"; }
+
+
+    .hd-toggle:after { content: "HD mode"; }
+        .hd .hd-toggle:before { content: ""; }
+        .recording .hd-toggle:after { content: "Recording in standard recording"; }
         .recording.hd .hd-toggle:after { content: "Recording in HD"; }
 
-    .flash-toggle:after { content:"off"; }
-    .noflash .flash-toggle:after { content:"on"; }
-
-    .audio-toggle:after { content:"on"; }
-    .audio .audio-toggle:after { content:"off"; }
+    html:not(.noflash) .flash-toggle,
+    .audio .audio-toggle,
+    .hd:not(.recording) .hd-toggle {
+        &:before {
+            content:"✓";
+            padding-right: .25rem;
+        }
+    }
 
 
 
