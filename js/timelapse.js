@@ -547,7 +547,7 @@ var shootFrame = function() {
     // Make the frame
     var frame = '<div class="shot">' +
                     '<img src="' + src + '" width="' + (640 * HD) + '" height="' + (480 * HD) + '" />' +
-                    '<time>' + shottime + '</time>' +
+                    '<time data-frame="' + shotcount + '">' + shottime + '</time>' +
                 '</div>';
 
 

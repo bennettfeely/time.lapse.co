@@ -705,6 +705,13 @@
         text-align: center;
         padding: .5rem;
 
+        &:before {
+            content: attr(data-frame);
+            float: left;
+            font-size: smaller;
+            color: gray;
+        }
+
         @media (max-width: $tablet){ display: none; }
     }
 
